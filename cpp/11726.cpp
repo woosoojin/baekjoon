@@ -4,20 +4,22 @@ using namespace std;
 int n;
 int d[1001];
 
-int dp(int x) {
-	if (x == 1)
+int dp(int n) {
+	if (n == 1)
 		return 1;
-	if (x == 2)
+	if (n == 2)
 		return 2;
-	if (d[x] != 0)
-		return d[x];
+	if (d[n] != 0)
+		return d[n];
 
-	return d[x] = (dp(x - 1) + dp(x - 2));
+	return d[n] = (dp(n - 1) + dp(n - 2)) % 10007;
 }
 
 int main() {
+	int n;
+	cin >> n;
 
-
+	cout << dp(n);
 
 	return 0;
 }
